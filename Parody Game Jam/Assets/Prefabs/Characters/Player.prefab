@@ -200,7 +200,7 @@ MonoBehaviour:
   desiredDirec: {x: 0, y: 0, z: 0}
   trueDirec: {x: 0, y: 0, z: 0}
   redirectSpeed: 20
-  maxMoveSpeed: 20
+  maxMoveSpeed: 18
 --- !u!114 &11413868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +226,7 @@ MonoBehaviour:
   camHorizontalSocketTf: {fileID: 467986}
   camVerticalSocketTf: {fileID: 448672}
   cam: {fileID: 2043304}
+  canLookAround: 1
   aimSensitivity: 5
   deltaAimDirec: {x: 0, y: 0}
 --- !u!114 &11460842

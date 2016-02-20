@@ -25,6 +25,8 @@ public class LookController : MonoBehaviour {
     public Camera cam;
     Transform camTf;
 
+    public bool canLookAround = true;
+
     public float aimSensitivity = 5.0f;
 
     public Vector2 deltaAimDirec;//unit vector representing how far mouse moved this frame
@@ -78,7 +80,10 @@ public class LookController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        HandleCam();
+
+        if (canLookAround) {
+            HandleCam();
+        }
 
         //Debug.DrawRay(GetRayFromCamera().origin, GetRayFromCamera().direction * 10.0f);
     }
