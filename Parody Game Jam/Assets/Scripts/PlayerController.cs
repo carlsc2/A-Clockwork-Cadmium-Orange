@@ -47,4 +47,26 @@ public class PlayerController : MonoBehaviour {
                                               0.0f,
                                               Input.GetAxisRaw("Vertical")));
     }
+
+    public void SwitchModes(InteractionMode newMode) {
+        if (curInteractionMode == newMode) { return; }
+
+        switch(newMode) {
+            case InteractionMode.Movement:
+                SwitchToMovementModeProtocol();
+                break;
+            case InteractionMode.Painting:
+                SwitchToPaintingModeProtocol();
+                break;
+        }
+
+    }
+
+    private void SwitchToMovementModeProtocol() {
+
+    }
+
+    private void SwitchToPaintingModeProtocol() {
+
+    }
 }
