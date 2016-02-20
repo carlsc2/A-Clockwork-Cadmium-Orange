@@ -13,6 +13,8 @@ GameObject:
   - 114: {fileID: 11413684}
   - 114: {fileID: 11445224}
   - 54: {fileID: 5417390}
+  - 95: {fileID: 9513984}
+  - 114: {fileID: 11460842}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -167,6 +169,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!95 &9513984
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112662}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36d4e4d2bd8084b4e972dd7e2cab34a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11413684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,8 +199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredDirec: {x: 0, y: 0, z: 0}
   trueDirec: {x: 0, y: 0, z: 0}
-  redirectSpeed: 1
-  maxMoveSpeed: 1
+  redirectSpeed: 20
+  maxMoveSpeed: 20
 --- !u!114 &11413868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +228,17 @@ MonoBehaviour:
   cam: {fileID: 2043304}
   aimSensitivity: 5
   deltaAimDirec: {x: 0, y: 0}
+--- !u!114 &11460842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6ced80c9c5c1049bc5418e46cd0948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11483844
 MonoBehaviour:
   m_ObjectHideFlags: 1

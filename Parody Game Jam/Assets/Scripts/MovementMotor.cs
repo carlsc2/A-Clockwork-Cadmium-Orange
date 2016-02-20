@@ -45,6 +45,7 @@ public class MovementMotor : MonoBehaviour {
 
     private void ApplyMovement() {
         //transform.Translate(trueDirec);
-        rigBod.MovePosition(transform.position + trueDirec);
+        //rigBod.MovePosition(transform.position + trueDirec);
+        rigBod.velocity = transform.localToWorldMatrix * (trueDirec * maxMoveSpeed);
     }
 }
