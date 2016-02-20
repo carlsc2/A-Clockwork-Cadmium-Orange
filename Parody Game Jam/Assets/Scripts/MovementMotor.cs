@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody))]
 public class MovementMotor : MonoBehaviour {
+
+    Rigidbody rigBod;
 
     public Vector3 desiredDirec;
     public Vector3 trueDirec;
@@ -9,6 +12,10 @@ public class MovementMotor : MonoBehaviour {
     public float redirectSpeed = 1.0f;
 
     public float maxMoveSpeed = 1.0f;
+
+    void Awake() {
+        rigBod = GetComponent<Rigidbody>();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +44,7 @@ public class MovementMotor : MonoBehaviour {
     }
 
     private void ApplyMovement() {
-        transform.Translate(trueDirec);
+        //transform.Translate(trueDirec);
+        rigBod.MovePosition(transform.position + trueDirec);
     }
 }
