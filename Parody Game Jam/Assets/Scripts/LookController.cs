@@ -18,7 +18,7 @@ public class LookController : MonoBehaviour {
 public class LookController : MonoBehaviour {
 
     Transform tf;
-    public Transform camOrigin;
+    //public Transform camOrigin;
     public Transform camHorizontalSocketTf;
     public Transform camVerticalSocketTf;
 
@@ -144,7 +144,7 @@ public class LookController : MonoBehaviour {
 
     }
 
-    public void InputDeltaView(Vector2 deltaView) {
+    public void SetDeltaAimDirec(Vector2 deltaView) {
         deltaAimDirec = deltaView;
     }
 

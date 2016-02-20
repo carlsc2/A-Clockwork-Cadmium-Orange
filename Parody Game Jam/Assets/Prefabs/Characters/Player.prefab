@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467986}
+  - 114: {fileID: 11413868}
   - 114: {fileID: 11483844}
   - 114: {fileID: 11413684}
   - 114: {fileID: 11462762}
@@ -137,6 +138,17 @@ MonoBehaviour:
   trueDirec: {x: 0, y: 0, z: 0}
   redirectSpeed: 1
   maxMoveSpeed: 1
+--- !u!114 &11413868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b599bb37e3d3f0d42910455c9cb7e98d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11445224
 MonoBehaviour:
   m_ObjectHideFlags: 1
