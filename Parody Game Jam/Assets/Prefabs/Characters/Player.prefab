@@ -31,7 +31,7 @@ GameObject:
   - 20: {fileID: 2043304}
   m_Layer: 0
   m_Name: Cam
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b804699399f1c45939c6b48e015b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camOrigin: {fileID: 0}
   camHorizontalSocketTf: {fileID: 467986}
   camVerticalSocketTf: {fileID: 448672}
   cam: {fileID: 2043304}
@@ -177,7 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b804699399f1c45939c6b48e015b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camOrigin: {fileID: 0}
   camHorizontalSocketTf: {fileID: 0}
   camVerticalSocketTf: {fileID: 0}
   cam: {fileID: 0}
@@ -194,6 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561e32d3b3ed209459c371a2d6940654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookControl: {fileID: 0}
+  motor: {fileID: 0}
+  curInteractionMode: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
