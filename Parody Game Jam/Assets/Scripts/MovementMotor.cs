@@ -22,6 +22,14 @@ public class MovementMotor : MonoBehaviour {
         ApplyMovement();
 	}
 
+    public void SetDesiredMoveDirec(Vector3 desiredDirec) {
+        this.desiredDirec = desiredDirec;
+    }
+
+    public void SetDesiredRedirectSpeed(float redirectSpeed) {
+        this.redirectSpeed = redirectSpeed;
+    }
+
     private void UpdateTrueDirec() {
         if (trueDirec == desiredDirec) { return; }
 
