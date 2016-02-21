@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class enemyAI : MonoBehaviour {
 
 	public float shootradius = 10f;
+	public float sightradius = 30f;
 
 	private Transform player;
 
@@ -11,28 +12,46 @@ public class enemyAI : MonoBehaviour {
 
 	private NavMeshAgent agent;
 
+	public List<Transform> waypoints;
+
+	private int index = 0;
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		InvokeRepeating("shootPlayer", 0, .1f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Vector3.Distance(transform.position, player.position) < shootradius) {
-			agent.Stop();
-			shootPlayer();
+		float pdist = Vector3.Distance(transform.position, player.position);
+		print(pdist);
+		if (pdist < sightradius) {
+			if (pdist < shootradius) {
+				agent.Stop();
+				shootPlayer();
+			}
+			else {
+				agent.Resume();
+				agent.SetDestination(player.position);
+			}
 		}
 		else {
-			agent.SetDestination(player.position);
+			if (waypoints.Count > 0) {
+				agent.Resume();
+				agent.SetDestination(waypoints[index].position);
+				if (Vector3.Distance(transform.position, waypoints[index].position) < 2) {
+					index = ++index % waypoints.Count;
+					agent.SetDestination(waypoints[index].position);
+				}
+			}
 		}
 	
 	}
 
 	void shootPlayer() {
 		Ray ray = new Ray(transform.position, player.position - transform.position);
-		Debug.DrawRay(ray.origin, ray.direction);
+		//Debug.DrawRay(ray.origin, ray.direction);
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit)) {
 			if(hit.collider && hit.collider.transform.root.tag == "Player") {

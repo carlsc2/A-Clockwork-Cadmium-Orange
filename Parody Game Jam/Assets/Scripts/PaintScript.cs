@@ -21,9 +21,12 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	private List<Vector2> drawpoints;
 
+	private Transform player;
+
 	void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
+		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
 	void Update() {
@@ -112,15 +115,27 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	void destroyAll(List<Vector2> hull) {
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("enemy")) {
-			Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
-			if (ConvexHull.ContainsPoint(hull, spos)) {
-				Destroy(g);
+			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit)) {
+				if (hit.collider == g.GetComponentInChildren<Collider>()) {
+					Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
+					if (ConvexHull.ContainsPoint(hull, spos)) {
+						Destroy(g);
+					}
+				}
 			}
 		}
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("projectile")) {
-			Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
-			if (ConvexHull.ContainsPoint(hull, spos)) {
-				Destroy(g);
+			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit)) {
+				if (hit.collider == g.GetComponentInChildren<Collider>()) {
+					Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
+					if (ConvexHull.ContainsPoint(hull, spos)) {
+						Destroy(g);
+					}
+				}
 			}
 		}
 
