@@ -13,7 +13,7 @@ public class paletteColor : MonoBehaviour, IPointerEnterHandler {
 	}
 
 	public void OnPointerEnter(PointerEventData pdata) {
-		PaintScript ps = transform.root.GetComponent<PaintScript>();
+		PaintScript ps = transform.parent.parent.parent.GetComponent<PaintScript>();
 		ps.paintColor = color;
 		ps.brushtip.color = color;
 		GetComponent<Image>().color = color;
