@@ -31,10 +31,17 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public GameObject[] clouds;
 	public GameObject[] mountains;
 
+	private PlayerStatus pstat;
+
+	private int colorsused = 1;
+
+	private Color prevcolor;
+
 	void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		pstat = player.GetComponent<PlayerStatus>();
 
 		Color[] cols = new Color[128 * 128];
 		for (int i = 0; i < 128 * 128; i++) {
@@ -83,6 +90,11 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		if (dragging) {
 			brush.position = Input.mousePosition;
 			if (eventData.button == PointerEventData.InputButton.Left) {
+				if(prevcolor != paintColor) {
+					prevcolor = paintColor;
+					colorsused++;
+				}
+
 				Bresenham3D line = new Bresenham3D(prevpos, Input.mousePosition);
 				foreach (Vector3 point in line) {
 					Vector2 tmp = Camera.main.ScreenToViewportPoint(point);
@@ -128,10 +140,14 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			//}
 			//canvastex.Apply();
 			drawpoints.Clear();
+			colorsused = 1;
+			prevcolor = paintColor;
 		}
 	}
 
 	void destroyAll(List<Vector2> hull, string mode) {
+		long points = 0;
+		int kills = 0;
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("enemy")) {
 			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
 			RaycastHit hit;
@@ -152,11 +168,15 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 								break;
 
 						}
+						points += 100 * ++kills;
 						Destroy(g);
 					}
 				}
 			}
 		}
+		//print("Colors used: " + colorsused);
+		pstat.AddScore(points * colorsused);
+
 		/*foreach (GameObject g in GameObject.FindGameObjectsWithTag("projectile")) {
 			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
 			RaycastHit hit;
@@ -170,7 +190,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			}
 		}*/
 
-		
+
 
 	} 
 

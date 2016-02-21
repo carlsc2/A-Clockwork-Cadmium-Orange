@@ -7,31 +7,23 @@ public class HealthStatus : MonoBehaviour {
 	public Image face;
 	public Sprite[] faces;
 
-	public int health = 100;
-	private float maxHealth = 100;
-
 	public Text healthText;
 	public Text scoreText;
 
-	public long score = 0;
+	private PlayerStatus player;
 
-
-	public void Hit() {
-		if (health > 0) {
-			health--;
-			int splatindex = (int)((1 - health / maxHealth) * (splats.Length-1));
-			int faceindex = (int)((1 - health / maxHealth) * (faces.Length-1));
-			splats[splatindex].enabled = true;
-			face.sprite = faces[faceindex];
-
-			healthText.text = "Health: " + Mathf.FloorToInt(health / maxHealth).ToString() + "%";
-		}
+	void Awake() {
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
 	}
 
-	public void AddScore(long points) {
-		score += points;
-		scoreText.text = "Score: " + score.ToString();
+	public void Update() {
+		
+		int splatindex = (int)((1 - player.health / player.maxHealth) * (splats.Length-1));
+		int faceindex = (int)((1 - player.health / player.maxHealth) * (faces.Length-1));
+		splats[splatindex].enabled = true;
+		face.sprite = faces[faceindex];
+
+		healthText.text = "Health: " + Mathf.FloorToInt(player.health / player.maxHealth * 100).ToString() + "%";
+		scoreText.text = "Score: " + player.score.ToString();
 	}
-
-
 }

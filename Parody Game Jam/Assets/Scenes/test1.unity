@@ -957,16 +957,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 112662, guid: 37e0c35cd880e5548a0e9dd847cea228, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 146554, guid: 37e0c35cd880e5548a0e9dd847cea228, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11462762, guid: 37e0c35cd880e5548a0e9dd847cea228, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37e0c35cd880e5548a0e9dd847cea228, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2006609878
