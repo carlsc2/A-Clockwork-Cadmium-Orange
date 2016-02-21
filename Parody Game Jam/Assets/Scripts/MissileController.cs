@@ -21,6 +21,6 @@ public class MissileController : MonoBehaviour {
 	}
 
     public void Launch() {
-
+        animController.SetTrigger("Trigger_LaunchMissile");
     }
 }
