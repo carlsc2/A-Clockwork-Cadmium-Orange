@@ -200,7 +200,7 @@ MonoBehaviour:
   desiredDirec: {x: 0, y: 0, z: 0}
   trueDirec: {x: 0, y: 0, z: 0}
   redirectSpeed: 20
-  maxMoveSpeed: 0.25
+  maxMoveSpeed: 16
 --- !u!114 &11413868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,19 +246,19 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 0.4117347
-      outSlope: 0.4117347
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - time: 0.5
       value: 1
-      inSlope: 2
-      outSlope: -2
-      tangentMode: 21
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     - time: 1
       value: 0
-      inSlope: -0.9222845
-      outSlope: Infinity
-      tangentMode: 25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
