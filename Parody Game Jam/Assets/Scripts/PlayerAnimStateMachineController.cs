@@ -95,4 +95,8 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
 		animController.SetFloat("Float_HeadBobBlend", headBobMotionCurve.Evaluate(timer_walkCycleTime / walkCycleTime));
 
 	}
+
+    public void KillPlayer() {
+        animController.SetTrigger("Trigger_KillPlayer");
+    }
 }

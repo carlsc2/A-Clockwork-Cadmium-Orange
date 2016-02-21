@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(MovementMotor))]
 [RequireComponent(typeof(LookController))]
+[RequireComponent(typeof(PlayerAnimStateMachineController))]
 
+//[RequireComponent(typeof(PlayerCamController))]
 public class PlayerController : MonoBehaviour {
 
     public enum InteractionMode {
@@ -12,13 +16,19 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    private Rigidbody rigBod;
+
     public LookController lookControl;
     public MovementMotor motor;
+
+    public PlayerCamController camController;
     
     public InteractionMode curInteractionMode;
 
 
     void Awake() {
+        rigBod = GetComponent<Rigidbody>();
+
         lookControl = GetComponent<LookController>();
         motor = GetComponent<MovementMotor>();
     }
@@ -69,5 +79,11 @@ public class PlayerController : MonoBehaviour {
 
     private void SwitchToPaintingModeProtocol() {
 
+    }
+
+    public void KillPlayer() {
+        rigBod.constraints = RigidbodyConstraints.None;
+
+        //camController.KillPlayerEffects();
     }
 }
