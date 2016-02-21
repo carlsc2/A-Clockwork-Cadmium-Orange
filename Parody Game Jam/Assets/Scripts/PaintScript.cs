@@ -107,6 +107,9 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			Time.timeScale = 1f;
 			Time.fixedDeltaTime = 1f * 0.02f;
 
+			string template = CompareShape.Match(drawpoints);
+			print(template);
+
 			destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false));
 
 			//foreach (Vector2 point in ConvexHull.ComputeConvexHull(drawpoints,false)) {
