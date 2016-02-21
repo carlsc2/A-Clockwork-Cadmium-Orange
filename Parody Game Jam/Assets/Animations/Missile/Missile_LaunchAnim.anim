@@ -24,13 +24,13 @@ AnimationClip:
         tangentMode: 0
       - time: 0.083333336
         value: {x: -129.52858, y: 75.1, z: 4.9693317}
-        inSlope: {x: 0, y: 722.33997, z: 0}
-        outSlope: {x: 0, y: 722.33997, z: 0}
+        inSlope: {x: 0, y: 1074.1582, z: 0}
+        outSlope: {x: 0, y: 1074.1582, z: 0}
         tangentMode: 0
       - time: 1
-        value: {x: -129.52858, y: 855, z: 4.9693317}
-        inSlope: {x: 0, y: 850.8, z: 0}
-        outSlope: {x: 0, y: 850.8, z: 0}
+        value: {x: -129.52858, y: 1500, z: 4.9693317}
+        inSlope: {x: 0, y: 1554.4364, z: 0}
+        outSlope: {x: 0, y: 1554.4364, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -314,13 +314,13 @@ AnimationClip:
         tangentMode: 10
       - time: 0.083333336
         value: 75.1
-        inSlope: 722.33997
-        outSlope: 722.33997
+        inSlope: 1074.1582
+        outSlope: 1074.1582
         tangentMode: 10
       - time: 1
-        value: 855
-        inSlope: 850.8
-        outSlope: 850.8
+        value: 1500
+        inSlope: 1554.4364
+        outSlope: 1554.4364
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -853,4 +853,11 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1
+    functionName: EndGame
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

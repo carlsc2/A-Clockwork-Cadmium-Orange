@@ -55,8 +55,8 @@ public class ComputerInteract : MonoBehaviour {
 		yield return new WaitForSeconds(clip3.length);
 		ui.SetActive(true);
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		player.GetComponent<LookController>().enabled = false;
-		player.GetComponent<MovementMotor>().enabled = false;
+		//player.GetComponent<LookController>().enabled = false;
+		//player.GetComponent<MovementMotor>().enabled = false;
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		while (true) {
