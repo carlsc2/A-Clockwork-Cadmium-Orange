@@ -18,9 +18,11 @@ public class HealthStatus : MonoBehaviour {
 
 	public void Update() {
 		
-		int splatindex = (int)((1 - player.health / player.maxHealth) * (splats.Length-1));
+		int splatindex = (int)((1 - player.health / player.maxHealth) * (splats.Length));
+		if (splatindex > 0) {
+			splats[splatindex-1].enabled = true;
+		}
 		int faceindex = (int)((1 - player.health / player.maxHealth) * (faces.Length-1));
-		splats[splatindex].enabled = true;
 		face.sprite = faces[faceindex];
 
 		healthText.text = "Health: " + Mathf.FloorToInt(player.health / player.maxHealth * 100).ToString() + "%";

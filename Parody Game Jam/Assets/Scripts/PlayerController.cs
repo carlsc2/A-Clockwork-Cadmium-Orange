@@ -20,8 +20,9 @@ public class PlayerController : MonoBehaviour {
 
 	public LookController lookControl;
 	public MovementMotor motor;
+    PlayerAnimStateMachineController animationBinder;
 
-	public PlayerCamController camController;
+    public PlayerCamController camController;
 	
 	public InteractionMode curInteractionMode;
 
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour {
 
 		lookControl = GetComponent<LookController>();
 		motor = GetComponent<MovementMotor>();
+
+        animationBinder = GetComponent<PlayerAnimStateMachineController>();
 	}
 
 	void Start () {
@@ -83,8 +86,11 @@ public class PlayerController : MonoBehaviour {
 
 	public void KillPlayer() {
 		rigBod.constraints = RigidbodyConstraints.None;
+        rigBod.useGravity = true;
 		rigBod.AddTorque(rigBod.transform.right * 50);
 		motor.enabled = false;
+        animationBinder.canAnimate = false;
+
 		//lookControl.enabled = false;
 
 		//camController.KillPlayerEffects();
