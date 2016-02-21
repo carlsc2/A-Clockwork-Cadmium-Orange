@@ -8,4 +8,5 @@ public class loadLevel : MonoBehaviour {
 	public void LoadLeveL() {
 		SceneManager.LoadScene(levelToLoad);
 	}
+
 }

@@ -10,6 +10,8 @@ public class ComputerInteract : MonoBehaviour {
 	public AudioClip clip3;
 	public AudioClip clip4;
 
+	public GameObject ui;
+
 	private bool started = false;
 
 	void Awake() {
@@ -32,6 +34,12 @@ public class ComputerInteract : MonoBehaviour {
 		yield return new WaitForSeconds(clip2.length);
 		aso.PlayOneShot(clip3);
 		yield return new WaitForSeconds(clip3.length);
+		ui.SetActive(true);
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		player.GetComponent<LookController>().enabled = false;
+		player.GetComponent<MovementMotor>().enabled = false;
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 		while (true) {
 			aso.PlayOneShot(clip4);
 			yield return new WaitForSeconds(clip4.length + 2);
