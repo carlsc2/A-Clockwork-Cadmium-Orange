@@ -44,7 +44,9 @@ public class paletteColor : MonoBehaviour, IPointerEnterHandler {
 		} else {
 			source.clip = accident;
 		}
-		source.Play ();
+		if (!source.isPlaying) {
+			source.Play ();
+		}
 	}
 
 }
