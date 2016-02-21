@@ -13,6 +13,8 @@ public class MovementMotor : MonoBehaviour {
 
     public float maxMoveSpeed = 1.0f;
 
+    public float gravityForce = 75.0f;
+
     void Awake() {
         rigBod = GetComponent<Rigidbody>();
     }
@@ -48,6 +50,9 @@ public class MovementMotor : MonoBehaviour {
     }
 
     private void ApplyMovement_Fixed() {
+
+        rigBod.AddForce(Vector3.down * gravityForce);
+
         //transform.Translate(trueDirec);
 
         //Vector3 adjustedTrueDirec = transform.localToWorldMatrix * trueDirec;
