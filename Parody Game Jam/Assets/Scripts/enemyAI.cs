@@ -16,27 +16,32 @@ public class enemyAI : MonoBehaviour {
 
 	private int index = 0;
 
+	private bool shooting = false;
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		InvokeRepeating("shootPlayer", 0, .2f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		float pdist = Vector3.Distance(transform.position, player.position);
-		print(pdist);
 		if (pdist < sightradius) {
 			if (pdist < shootradius) {
 				agent.Stop();
-				shootPlayer();
+				//shootPlayer();
+				shooting = true;
 			}
 			else {
 				agent.Resume();
 				agent.SetDestination(player.position);
+				shooting = false;
 			}
 		}
 		else {
+			shooting = false;
 			if (waypoints.Count > 0) {
 				agent.Resume();
 				agent.SetDestination(waypoints[index].position);
@@ -50,15 +55,17 @@ public class enemyAI : MonoBehaviour {
 	}
 
 	void shootPlayer() {
-		Ray ray = new Ray(transform.position, player.position - transform.position);
-		//Debug.DrawRay(ray.origin, ray.direction);
-		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit)) {
-			if(hit.collider && hit.collider.transform.root.tag == "Player") {
-				GameObject bullet = Instantiate(projectile, transform.position - transform.forward, Quaternion.identity) as GameObject;
-				bullet.GetComponent<Rigidbody>().AddForce((-transform.forward) * 500);
+		if (shooting) {
+			Ray ray = new Ray(transform.position, player.position - transform.position);
+			//Debug.DrawRay(ray.origin, ray.direction);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit)) {
+				if (hit.collider && hit.collider.transform.root.tag == "Player") {
+					GameObject bullet = Instantiate(projectile, transform.position - transform.forward, Quaternion.identity) as GameObject;
+					bullet.GetComponent<Rigidbody>().AddForce((-transform.forward) * 500);
+				}
+
 			}
-			
 		}
 		
 	}

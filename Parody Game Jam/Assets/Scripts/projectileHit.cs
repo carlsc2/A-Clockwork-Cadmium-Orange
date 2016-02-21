@@ -13,9 +13,6 @@ public class projectileHit : MonoBehaviour {
 		if(col.gameObject.tag != "projectile") {
 			Destroy(gameObject);
 		}
-		print(col.gameObject.name);
-		
-
 		//make player lose hp
 	}
 

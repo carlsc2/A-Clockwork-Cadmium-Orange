@@ -23,6 +23,10 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	private Transform player;
 
+	public Color paintColor;
+
+	public Image brushtip;
+
 	void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
@@ -70,13 +74,13 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				foreach (Vector3 point in line) {
 					Vector2 tmp = Camera.main.ScreenToViewportPoint(point);
 					drawpoints.Add(tmp);
-					canvastex.SetPixel((int)(tmp.x * 128), (int)(tmp.y * 128), Color.red);
+					canvastex.SetPixel((int)(tmp.x * 128), (int)(tmp.y * 128), paintColor);
 
 					//fill in neighbors to make line thicker
-					canvastex.SetPixel((int)((tmp.x+1) * 128), (int)(tmp.y * 128), Color.red);
-					canvastex.SetPixel((int)((tmp.x-1) * 128), (int)(tmp.y * 128), Color.red);
-					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y+1) * 128), Color.red);
-					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y-1) * 128), Color.red);
+					canvastex.SetPixel((int)((tmp.x+1) * 128), (int)(tmp.y * 128), paintColor);
+					canvastex.SetPixel((int)((tmp.x-1) * 128), (int)(tmp.y * 128), paintColor);
+					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y+1) * 128), paintColor);
+					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y-1) * 128), paintColor);
 				}
 				canvastex.Apply();
 			}
@@ -117,7 +121,8 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("enemy")) {
 			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
 			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit)) {
+			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~(1<<8))) { //ignore projectile layer
+				//print(hit.collider.gameObject);
 				if (hit.collider == g.GetComponentInChildren<Collider>()) {
 					Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
 					if (ConvexHull.ContainsPoint(hull, spos)) {
@@ -126,7 +131,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				}
 			}
 		}
-		foreach (GameObject g in GameObject.FindGameObjectsWithTag("projectile")) {
+		/*foreach (GameObject g in GameObject.FindGameObjectsWithTag("projectile")) {
 			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
@@ -137,7 +142,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 					}
 				}
 			}
-		}
+		}*/
 
 	} 
 
