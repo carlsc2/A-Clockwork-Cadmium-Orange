@@ -15,7 +15,7 @@ public class SoundBarkController_Editor : Editor {
         base.OnInspectorGUI();
 
         if (GUILayout.Button("Invoke Bark")) {
-            self.PlayRandomBark();
+            self.PlayRandomBark(BarkClipInfo.BarkTag.None);
         }
 
         if (GUILayout.Button("Transfer Audio Clilps")) {

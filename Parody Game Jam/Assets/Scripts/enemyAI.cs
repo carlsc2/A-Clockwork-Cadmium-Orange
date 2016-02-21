@@ -20,12 +20,15 @@ public class enemyAI : MonoBehaviour {
 
 	private Animator anim;
 
+	public AudioSource aso;
+	public AudioClip shotsound;
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		anim = GetComponent<Animator>();
-		InvokeRepeating("shootPlayer", 0, .2f);
+		InvokeRepeating("shootPlayer", 0, .1f);
 	}
 	
 	// Update is called once per frame
@@ -68,6 +71,7 @@ public class enemyAI : MonoBehaviour {
 				if (hit.collider && hit.collider.transform.root.tag == "Player") {
 					GameObject bullet = Instantiate(projectile, transform.position - transform.forward*transform.localScale.x, Quaternion.identity) as GameObject;
 					bullet.GetComponent<Rigidbody>().AddForce((-transform.forward) * 500);
+					aso.PlayOneShot(shotsound);
 				}
 
 			}

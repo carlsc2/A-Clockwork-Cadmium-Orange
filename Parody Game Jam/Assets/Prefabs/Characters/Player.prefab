@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11445224}
   - 95: {fileID: 9513984}
   - 114: {fileID: 11460842}
+  - 114: {fileID: 11410208}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -54,7 +55,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 488740}
   - 136: {fileID: 13617046}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,11 +292,20 @@ MonoBehaviour:
   maxBlurSize: 5
   downsample: 0
   tiltShiftShader: {fileID: 4800000, guid: bf34d2a25450349699e8ae6456fa7ca9, type: 3}
---- !u!114 &11408990
+--- !u!114 &11410208
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f4ecd2ab8dd0b4480121796e40595b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  score: 0
   m_GameObject: {fileID: 133074}
   m_Enabled: 1
   m_EditorHideFlags: 0

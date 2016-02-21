@@ -12,8 +12,14 @@ public class projectileHit : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		if(col.gameObject.tag != "projectile") {
 			Destroy(gameObject);
+			//make player lose hp
+			PlayerStatus pstat = col.transform.root.GetComponent<PlayerStatus>();
+			if (pstat) {
+				pstat.Hit();
+			}
 		}
-		//make player lose hp
+
+
 	}
 
 	void Update() {
