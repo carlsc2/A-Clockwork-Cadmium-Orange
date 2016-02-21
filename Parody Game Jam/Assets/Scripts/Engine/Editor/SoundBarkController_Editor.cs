@@ -17,6 +17,11 @@ public class SoundBarkController_Editor : Editor {
         if (GUILayout.Button("Invoke Bark")) {
             self.PlayRandomBark();
         }
+
+        if (GUILayout.Button("Transfer Audio Clilps")) {
+            //self.barkClipStorage.ClearStorage();
+            self.barkClipStorage = new BarkClipStorage(self.TransferList.ToArray());
+        }
     }
 
 }
