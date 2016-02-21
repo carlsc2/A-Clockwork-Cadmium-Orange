@@ -60,7 +60,12 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			Cursor.lockState = CursorLockMode.None;
 		}
 		if (Input.GetKeyDown(KeyCode.Escape)) {
+#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPaused = true;
+#else
+			Application.Quit();
+#endif
+
 		}
 	}
 
