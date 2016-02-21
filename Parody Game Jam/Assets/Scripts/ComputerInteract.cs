@@ -18,11 +18,12 @@ public class ComputerInteract : MonoBehaviour {
 		aso = GetComponent<AudioSource>();
 	}
 
-	void OnTriggerEnter(Collider col) {
+	void OnTriggerStay(Collider col) {
+		if (Input.GetKeyDown(KeyCode.E)) {
+			if (!started && col.transform.root.tag == "Player") {
 
-		if(!started && col.transform.root.tag == "Player") {
-	
-			StartCoroutine(audioroutine());
+				StartCoroutine(audioroutine());
+			}
 		}
 	}
 
