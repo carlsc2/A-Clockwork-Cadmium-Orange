@@ -1136,6 +1136,90 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a997bf61d641f364e853b42ddc4eedbe, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &115352014 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 130264, guid: 403bdd3babe97ea479c5b6bcb7a54f46, type: 2}
+  m_PrefabInternal: {fileID: 1322489965}
+--- !u!114 &115352015 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11459960, guid: 403bdd3babe97ea479c5b6bcb7a54f46,
+    type: 2}
+  m_PrefabInternal: {fileID: 1322489965}
+  m_Script: {fileID: 11500000, guid: 1a5dec2862ebaa148be4566d8b25a4d8, type: 3}
+--- !u!82 &115352016
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115352014}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 974a05900657b8a49995d9eaed688053, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0.65
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &131042652
 Prefab:
   m_ObjectHideFlags: 0
@@ -1544,7 +1628,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 229
+  m_RootOrder: 230
 --- !u!1001 &188458713
 Prefab:
   m_ObjectHideFlags: 0
@@ -2015,7 +2099,7 @@ Transform:
   - {fileID: 1259925309}
   - {fileID: 1348341109}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 86
 --- !u!1001 &262995962
 Prefab:
   m_ObjectHideFlags: 0
@@ -4319,6 +4403,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae7f9f9eacff4142b21eb85ae606fdc, type: 2}
   m_IsPrefabParent: 0
@@ -6145,7 +6233,7 @@ Transform:
   - {fileID: 1018325084}
   - {fileID: 1378349599}
   m_Father: {fileID: 0}
-  m_RootOrder: 211
+  m_RootOrder: 212
 --- !u!1 &786605993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6279,7 +6367,7 @@ Transform:
   - {fileID: 2061905972}
   - {fileID: 291571028}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 97
 --- !u!1001 &799283189
 Prefab:
   m_ObjectHideFlags: 0
@@ -7947,7 +8035,6 @@ GameObject:
   - 20: {fileID: 950878756}
   - 124: {fileID: 950878755}
   - 92: {fileID: 950878754}
-  - 81: {fileID: 950878753}
   m_Layer: 0
   m_Name: CCTCamera
   m_TagString: Untagged
@@ -7967,14 +8054,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1184598423}
   m_RootOrder: 0
---- !u!81 &950878753
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8177278, guid: f6154f4e864f03048bcd5d3d5efeac17,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 950878751}
-  m_Enabled: 1
 --- !u!92 &950878754
 Behaviour:
   m_ObjectHideFlags: 0
@@ -9361,7 +9440,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 215
+  m_RootOrder: 216
 --- !u!1001 &1064705580
 Prefab:
   m_ObjectHideFlags: 0
@@ -9809,7 +9888,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 236
+  m_RootOrder: 237
 --- !u!1001 &1123525603
 Prefab:
   m_ObjectHideFlags: 0
@@ -10193,7 +10272,7 @@ Transform:
   m_Children:
   - {fileID: 950878752}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 158
 --- !u!1001 &1184951050
 Prefab:
   m_ObjectHideFlags: 0
@@ -10436,9 +10515,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1193313070}
-        m_MethodName: LoadLeveL
+      - m_Target: {fileID: 115352015}
+        m_MethodName: Launch
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 693194119}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14097,7 +14187,7 @@ Transform:
   m_Children:
   - {fileID: 771858194}
   m_Father: {fileID: 0}
-  m_RootOrder: 226
+  m_RootOrder: 229
 --- !u!1001 &1656329900
 Prefab:
   m_ObjectHideFlags: 0
@@ -15970,7 +16060,7 @@ Transform:
   - {fileID: 1902575619}
   - {fileID: 59327839}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 122
 --- !u!1 &1918598028
 GameObject:
   m_ObjectHideFlags: 0
@@ -16642,7 +16732,7 @@ Transform:
   - {fileID: 1287754023}
   - {fileID: 697677412}
   m_Father: {fileID: 0}
-  m_RootOrder: 212
+  m_RootOrder: 213
 --- !u!1001 &2006635293
 Prefab:
   m_ObjectHideFlags: 0
@@ -16928,7 +17018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 224
+  m_RootOrder: 225
 --- !u!1001 &2033262724
 Prefab:
   m_ObjectHideFlags: 0
@@ -17275,7 +17365,7 @@ Transform:
   - {fileID: 690132181}
   - {fileID: 787096398}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 73
 --- !u!1 &2061905971
 GameObject:
   m_ObjectHideFlags: 0
