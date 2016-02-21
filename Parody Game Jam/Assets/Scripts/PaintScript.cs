@@ -28,6 +28,8 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public Image brushtip;
 
 	public GameObject[] trees;
+	public GameObject[] clouds;
+	public GameObject[] mountains;
 
 	void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
@@ -143,8 +145,10 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 								Instantiate(trees[Random.Range(0, trees.Length)], g.transform.position, Quaternion.identity);
 								break;
 							case "mountain":
+								Instantiate(mountains[Random.Range(0, mountains.Length)], g.transform.position, Quaternion.identity);
 								break;
 							case "cloud":
+								Instantiate(clouds[Random.Range(0, clouds.Length)], g.transform.position, Quaternion.identity);
 								break;
 
 						}
