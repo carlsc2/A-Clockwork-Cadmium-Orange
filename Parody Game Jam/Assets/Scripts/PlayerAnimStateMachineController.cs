@@ -5,31 +5,28 @@ using System.Collections;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimStateMachineController : MonoBehaviour {
 
-    public enum MovementAnimState {
-        Stationary = 0,
-        Moving = 1,
-    }
+	public enum MovementAnimState {
+		Stationary = 0,
+		Moving = 1,
+	}
 
-    public MovementAnimState curMovementAnimState;
+	public MovementAnimState curMovementAnimState;
 
-    Rigidbody rigBod;
-    Animator animController;
+	Rigidbody rigBod;
+	Animator animController;
 
-    public AnimationCurve headBobMotionCurve;
-    public float walkCycleTime;
-    private float timer_walkCycleTime = 0.0f;
+	public AnimationCurve headBobMotionCurve;
+	public float walkCycleTime;
+	private float timer_walkCycleTime = 0.0f;
 
-    private Vector3 prevWorldPosition;
 
-    void Awake() {
+	void Awake() {
 
-        rigBod = GetComponent<Rigidbody>();
-        animController = GetComponent<Animator>();
+		rigBod = GetComponent<Rigidbody>();
+		animController = GetComponent<Animator>();
 
-        SwitchMovementAnimState(MovementAnimState.Stationary);
-
-        prevWorldPosition = transform.position;
-    }
+		SwitchMovementAnimState(MovementAnimState.Stationary);
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -38,78 +35,64 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        EvaluateAnimState();
+		EvaluateAnimState();
 
-        SendHeadBobMovement();
-
-        prevWorldPosition = transform.position;
+		SendHeadBobMovement();
 	}
 
-    
-    private void EvaluateAnimState() {
-        /*
-        if (prevWorldPosition == transform.position) {
-            SwitchMovementAnimState(MovementAnimState.Stationary);
-        }
-        else {
-            SwitchMovementAnimState(MovementAnimState.Moving);
-        }
-        */
+	private void EvaluateAnimState() {
 
-        //---DEPRECATED---
-        
-        Vector2 truncatedVelocity = new Vector2(
-           (float)((int)(rigBod.velocity.x * 100.0f)),
-           (float)((int)(rigBod.velocity.z * 100.0f)));
-        
-        if (Mathf.Approximately( truncatedVelocity.magnitude, 0.0f)) {
-            SwitchMovementAnimState(MovementAnimState.Stationary);
+		//Debug.Log(rigBod.velocity);
 
-            //Debug.Log("stationary");
-        }
-        else {
-            SwitchMovementAnimState(MovementAnimState.Moving);
+		Vector2 truncatedVelocity = new Vector2(
+		   (float)((int)(rigBod.velocity.x * 100.0f)),
+		   (float)((int)(rigBod.velocity.z * 100.0f)));
+		
+		if (Mathf.Approximately( truncatedVelocity.magnitude, 0.0f)) {
+			SwitchMovementAnimState(MovementAnimState.Stationary);
 
-            //Debug.Log("moving");
-        }
-        
+			//Debug.Log("stationary");
+		}
+		else {
+			SwitchMovementAnimState(MovementAnimState.Moving);
+
+			//Debug.Log("moving");
+		}
+	}
 
 
-    }
+	//Transition logic for different animator parameter settings
+	private void SwitchMovementAnimState(MovementAnimState newState) {
 
+		if (curMovementAnimState == newState) {
+			return;
+		}
 
-    //Transition logic for different animator parameter settings
-    private void SwitchMovementAnimState(MovementAnimState newState) {
+		switch(newState) {
+			case MovementAnimState.Stationary:
+				TransitionToStationaryStateProtocol();
+				break;
+			case MovementAnimState.Moving:
+				TransitionToMovingStateProtocol();
+				break;
+		}
 
-        if (curMovementAnimState == newState) {
-            return;
-        }
+		curMovementAnimState = newState;
+	}
 
-        switch(newState) {
-            case MovementAnimState.Stationary:
-                TransitionToStationaryStateProtocol();
-                break;
-            case MovementAnimState.Moving:
-                TransitionToMovingStateProtocol();
-                break;
-        }
+	private void TransitionToStationaryStateProtocol() {
+		animController.SetBool("Bool_IsMoving", false);
+	}
 
-        curMovementAnimState = newState;
-    }
+	private void TransitionToMovingStateProtocol() {
+		animController.SetBool("Bool_IsMoving", true);
+	}
 
-    private void TransitionToStationaryStateProtocol() {
-        animController.SetBool("Bool_IsMoving", false);
-    }
+	private void SendHeadBobMovement() {
+		timer_walkCycleTime += Time.deltaTime;
+		if (timer_walkCycleTime >= walkCycleTime) { timer_walkCycleTime = 0.0f; }
 
-    private void TransitionToMovingStateProtocol() {
-        animController.SetBool("Bool_IsMoving", true);
-    }
+		animController.SetFloat("Float_HeadBobBlend", headBobMotionCurve.Evaluate(timer_walkCycleTime / walkCycleTime));
 
-    private void SendHeadBobMovement() {
-        timer_walkCycleTime += Time.deltaTime;
-        if (timer_walkCycleTime >= walkCycleTime) { timer_walkCycleTime = 0.0f; }
-
-        animController.SetFloat("Float_HeadBobBlend", headBobMotionCurve.Evaluate(timer_walkCycleTime / walkCycleTime));
-
-    }
+	}
 }
