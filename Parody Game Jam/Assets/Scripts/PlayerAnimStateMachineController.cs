@@ -19,6 +19,8 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
 	public float walkCycleTime;
 	private float timer_walkCycleTime = 0.0f;
 
+    public bool canAnimate = true;
+
 
 	void Awake() {
 
@@ -35,9 +37,14 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		EvaluateAnimState();
 
-		SendHeadBobMovement();
+        if (canAnimate) {
+
+		    EvaluateAnimState();
+
+		    SendHeadBobMovement();
+
+        }
 	}
 
 	private void EvaluateAnimState() {
