@@ -34,7 +34,7 @@ public class CompareShape : MonoBehaviour {
 			float len = Vector2.Distance (endpt, startpt);
 			while(len > dist2pt){
 				Vector2 newpt = new Vector2(0.0f, 0.0f);
-				newpt = startpt + (Vector2.Normalize (endpt - startpt) * dist2pt);
+				newpt = startpt + ((endpt - startpt).normalized * dist2pt);
 				newshape.Add (newpt);
 
 				dist2pt = ptdist;
@@ -68,11 +68,24 @@ public class CompareShape : MonoBehaviour {
 	}
 
 	string Match(List<Vector2> input){
-		len = getLen (input);
+		string tmp = "";
+		for(int i = 0; i < input.Count; i++) {
+			tmp = tmp + input [i].ToString () + "/";
+		}
+		print (tmp);
+
+		float len = getLen (input);
 
 		List<Vector2> shape = genShape (input, len, 20);
 
 		shape = Normalize (shape);
 
+		tmp = "";
+		for(int i = 0; i < shape.Count; i++) {
+			tmp = tmp + shape [i].ToString () + "/";
+		}
+		print (tmp);
+
+		return "";
 	}
 }
