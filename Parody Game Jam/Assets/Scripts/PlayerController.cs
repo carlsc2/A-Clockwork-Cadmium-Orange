@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(MovementMotor))]
 [RequireComponent(typeof(LookController))]
+
 public class PlayerController : MonoBehaviour {
 
     public enum InteractionMode {

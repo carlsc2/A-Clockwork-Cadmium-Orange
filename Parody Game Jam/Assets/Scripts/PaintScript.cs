@@ -21,9 +21,29 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	private List<Vector2> drawpoints;
 
+	private Transform player;
+
+	public Color paintColor;
+
+	public Image brushtip;
+
+	public GameObject[] trees;
+	public GameObject[] clouds;
+	public GameObject[] mountains;
+
 	void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
+		player = GameObject.FindGameObjectWithTag("Player").transform;
+
+		Color[] cols = new Color[128 * 128];
+		for (int i = 0; i < 128 * 128; i++) {
+			cols[i] = Color.clear;
+		}
+		canvastex = new Texture2D(128, 128);
+		drawingCanvas.sprite = Sprite.Create(canvastex, new Rect(0, 0, 128, 128), new Vector2(0.5f, 0.5f));
+		canvastex.SetPixels(cols);
+		canvastex.Apply();
 	}
 
 	void Update() {
@@ -67,13 +87,13 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				foreach (Vector3 point in line) {
 					Vector2 tmp = Camera.main.ScreenToViewportPoint(point);
 					drawpoints.Add(tmp);
-					canvastex.SetPixel((int)(tmp.x * 128), (int)(tmp.y * 128), Color.red);
+					canvastex.SetPixel((int)(tmp.x * 128), (int)(tmp.y * 128), paintColor);
 
 					//fill in neighbors to make line thicker
-					canvastex.SetPixel((int)((tmp.x+1) * 128), (int)(tmp.y * 128), Color.red);
-					canvastex.SetPixel((int)((tmp.x-1) * 128), (int)(tmp.y * 128), Color.red);
-					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y+1) * 128), Color.red);
-					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y-1) * 128), Color.red);
+					canvastex.SetPixel((int)((tmp.x+1) * 128), (int)(tmp.y * 128), paintColor);
+					canvastex.SetPixel((int)((tmp.x-1) * 128), (int)(tmp.y * 128), paintColor);
+					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y+1) * 128), paintColor);
+					canvastex.SetPixel((int)(tmp.x * 128), (int)((tmp.y-1) * 128), paintColor);
 				}
 				canvastex.Apply();
 			}
@@ -100,10 +120,8 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			Time.timeScale = 1f;
 			Time.fixedDeltaTime = 1f * 0.02f;
 
-			string template = CompareShape.Match (drawpoints);
-			Debug.Log (template);
 
-			destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false));
+			destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false), CompareShape.Match(drawpoints));
 
 			//foreach (Vector2 point in ConvexHull.ComputeConvexHull(drawpoints,false)) {
 				//canvastex.SetPixel((int)(point.x * 128), (int)(point.y * 128), Color.blue);
@@ -113,19 +131,46 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		}
 	}
 
-	void destroyAll(List<Vector2> hull) {
+	void destroyAll(List<Vector2> hull, string mode) {
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("enemy")) {
-			Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
-			if (ConvexHull.ContainsPoint(hull, spos)) {
-				Destroy(g);
+			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~(1<<8))) { //ignore projectile layer
+				//print(hit.collider.gameObject);
+				if (hit.collider == g.GetComponentInChildren<Collider>()) {
+					Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
+					if (ConvexHull.ContainsPoint(hull, spos)) {
+						switch (mode) {
+							case "tree":
+								Instantiate(trees[Random.Range(0, trees.Length)], g.transform.position, Quaternion.identity);
+								break;
+							case "mountain":
+								Instantiate(mountains[Random.Range(0, mountains.Length)], g.transform.position, Quaternion.identity);
+								break;
+							case "cloud":
+								Instantiate(clouds[Random.Range(0, clouds.Length)], g.transform.position, Quaternion.identity);
+								break;
+
+						}
+						Destroy(g);
+					}
+				}
 			}
 		}
-		foreach (GameObject g in GameObject.FindGameObjectsWithTag("projectile")) {
-			Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
-			if (ConvexHull.ContainsPoint(hull, spos)) {
-				Destroy(g);
+		/*foreach (GameObject g in GameObject.FindGameObjectsWithTag("projectile")) {
+			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit)) {
+				if (hit.collider == g.GetComponentInChildren<Collider>()) {
+					Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
+					if (ConvexHull.ContainsPoint(hull, spos)) {
+						Destroy(g);
+					}
+				}
 			}
-		}
+		}*/
+
+		
 
 	} 
 
