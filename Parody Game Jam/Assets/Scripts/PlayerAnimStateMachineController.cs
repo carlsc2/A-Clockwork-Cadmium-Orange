@@ -19,6 +19,7 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
     public float walkCycleTime;
     private float timer_walkCycleTime = 0.0f;
 
+    private Vector3 prevWorldPosition;
 
     void Awake() {
 
@@ -26,6 +27,8 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
         animController = GetComponent<Animator>();
 
         SwitchMovementAnimState(MovementAnimState.Stationary);
+
+        prevWorldPosition = transform.position;
     }
 
 	// Use this for initialization
@@ -38,12 +41,23 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
         EvaluateAnimState();
 
         SendHeadBobMovement();
+
+        prevWorldPosition = transform.position;
 	}
 
+    
     private void EvaluateAnimState() {
+        /*
+        if (prevWorldPosition == transform.position) {
+            SwitchMovementAnimState(MovementAnimState.Stationary);
+        }
+        else {
+            SwitchMovementAnimState(MovementAnimState.Moving);
+        }
+        */
 
-        //Debug.Log(rigBod.velocity);
-
+        //---DEPRECATED---
+        
         Vector2 truncatedVelocity = new Vector2(
            (float)((int)(rigBod.velocity.x * 100.0f)),
            (float)((int)(rigBod.velocity.z * 100.0f)));
@@ -51,13 +65,16 @@ public class PlayerAnimStateMachineController : MonoBehaviour {
         if (Mathf.Approximately( truncatedVelocity.magnitude, 0.0f)) {
             SwitchMovementAnimState(MovementAnimState.Stationary);
 
-            Debug.Log("stationary");
+            //Debug.Log("stationary");
         }
         else {
             SwitchMovementAnimState(MovementAnimState.Moving);
 
-            Debug.Log("moving");
+            //Debug.Log("moving");
         }
+        
+
+
     }
 
 
