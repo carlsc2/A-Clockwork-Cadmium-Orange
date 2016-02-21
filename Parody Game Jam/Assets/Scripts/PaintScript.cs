@@ -156,6 +156,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				if (hit.collider == g.GetComponentInChildren<Collider>()) {
 					Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
 					if (ConvexHull.ContainsPoint(hull, spos)) {
+						
 						switch (mode) {
 							case "tree":
 								Instantiate(trees[Random.Range(0, trees.Length)], g.transform.position, Quaternion.identity);
@@ -173,6 +174,12 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 					}
 				}
 			}
+		}
+		if(kills > 1) {
+			SoundBarkController.singleton.PlayRandomBark(BarkClipInfo.BarkTag.Multi);
+		}
+		else {
+			SoundBarkController.singleton.PlayRandomBark(BarkClipInfo.BarkTag.Tree);
 		}
 		//print("Colors used: " + colorsused);
 		pstat.AddScore(points * colorsused);
