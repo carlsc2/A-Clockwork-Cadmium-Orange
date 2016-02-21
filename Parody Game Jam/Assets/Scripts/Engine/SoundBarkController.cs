@@ -8,7 +8,8 @@ public class BarkClipInfo {
 	public enum BarkTag {
 		None = 0,
 		Tree = 1,
-		Multi = 2
+		Multi = 2,
+        WelcomeIntoHome = 3,
 	}
 
 	public AudioClip audioClip;
@@ -98,9 +99,13 @@ public class SoundBarkController : MonoBehaviour {
 	}
 
 
-	public void PlayRandomBark(BarkClipInfo.BarkTag tag) {
-		//playerAudioSourceRef.PlayOneShot(barkClips[Random.Range(0, barkClips.Count - 1)]);
-		if (!playerAudioSourceRef.isPlaying) {
+	public void PlayRandomBark(BarkClipInfo.BarkTag tag, bool interrupt = false) {
+        //playerAudioSourceRef.PlayOneShot(barkClips[Random.Range(0, barkClips.Count - 1)]);
+        if (interrupt) {
+            barkClipStorage.GetRandomBark(tag, ref playerAudioSourceRef);
+        }
+
+        else if (!playerAudioSourceRef.isPlaying) {
 			barkClipStorage.GetRandomBark(tag, ref playerAudioSourceRef);
 		}
 	}

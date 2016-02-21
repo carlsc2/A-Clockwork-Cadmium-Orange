@@ -37,7 +37,10 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	private Color prevcolor;
 
+	private AudioSource aso;
+
 	void Awake() {
+		aso = GetComponent<AudioSource>();
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -89,6 +92,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 			Time.timeScale = .1f;
 			Time.fixedDeltaTime = .1f * 0.02f;
+			aso.pitch = 0.5f;
 		}
 	}
 
@@ -137,8 +141,9 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 			Time.timeScale = 1f;
 			Time.fixedDeltaTime = 1f * 0.02f;
+			aso.pitch = 1f;
 
-			if(drawpoints.Count > 0) destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false), CompareShape.Match(drawpoints));
+			if (drawpoints.Count > 0) destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false), CompareShape.Match(drawpoints));
 
 			//foreach (Vector2 point in ConvexHull.ComputeConvexHull(drawpoints,false)) {
 				//canvastex.SetPixel((int)(point.x * 128), (int)(point.y * 128), Color.blue);
