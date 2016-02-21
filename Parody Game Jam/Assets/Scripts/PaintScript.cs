@@ -133,8 +133,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			Time.timeScale = 1f;
 			Time.fixedDeltaTime = 1f * 0.02f;
 
-
-			destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false), CompareShape.Match(drawpoints));
+			if(drawpoints.Count > 0) destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false), CompareShape.Match(drawpoints));
 
 			//foreach (Vector2 point in ConvexHull.ComputeConvexHull(drawpoints,false)) {
 				//canvastex.SetPixel((int)(point.x * 128), (int)(point.y * 128), Color.blue);
