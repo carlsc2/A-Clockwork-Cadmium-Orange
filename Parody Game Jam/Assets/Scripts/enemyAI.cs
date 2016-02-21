@@ -34,7 +34,6 @@ public class enemyAI : MonoBehaviour {
 		if (pdist < sightradius) {
 			if (pdist < shootradius) {
 				agent.Stop();
-				//shootPlayer();
 				shooting = true;
 			}
 			else {
@@ -56,7 +55,7 @@ public class enemyAI : MonoBehaviour {
 		}
 
 		anim.SetBool("shooting", shooting);
-		anim.SetFloat("speed", agent.speed);
+		anim.SetFloat("speed", agent.velocity.magnitude);
 
 	}
 

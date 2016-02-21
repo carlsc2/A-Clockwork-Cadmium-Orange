@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cb737204628494295df6c566001014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootradius: 10
-  sightradius: 30
+  shootradius: 7
+  sightradius: 20
   projectile: {fileID: 136380, guid: ded8f73ed46f09d4d9d90ed412529a23, type: 2}
   waypoints: []
 --- !u!114 &11499580
