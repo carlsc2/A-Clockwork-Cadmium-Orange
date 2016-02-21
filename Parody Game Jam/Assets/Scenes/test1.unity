@@ -335,8 +335,15 @@ MonoBehaviour:
   drawingCanvas: {fileID: 308444190}
   brush: {fileID: 1390930435}
   playercontrol: {fileID: 1836103425}
-  paintColor: {r: 0, g: 0, b: 0, a: 0}
+  paintColor: {r: 1, g: 0, b: 0, a: 1}
   brushtip: {fileID: 270897062}
+  trees:
+  - {fileID: 159266, guid: 28fcbfd153ead3b40a6c8c91009de677, type: 2}
+  - {fileID: 177846, guid: 24d89cf94c2f3f0428e8e67c2d0f0946, type: 2}
+  - {fileID: 155092, guid: 21570238ff1596946ac2dc9d8c8e2ed9, type: 2}
+  - {fileID: 155066, guid: 6d44f71f39080184cbe40538bd423aa5, type: 2}
+  - {fileID: 171200, guid: 3fc607cb2829ec442a922c9715a57227, type: 2}
+  - {fileID: 114460, guid: fc95030448846eb469136f9ffd4dfe73, type: 2}
 --- !u!1 &270897061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,10 +1543,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497964, guid: a997bf61d641f364e853b42ddc4eedbe, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 135888, guid: a997bf61d641f364e853b42ddc4eedbe, type: 2}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

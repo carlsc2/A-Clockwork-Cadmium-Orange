@@ -18,10 +18,13 @@ public class enemyAI : MonoBehaviour {
 
 	private bool shooting = false;
 
+	private Animator anim;
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		anim = GetComponent<Animator>();
 		InvokeRepeating("shootPlayer", 0, .2f);
 	}
 	
@@ -51,7 +54,10 @@ public class enemyAI : MonoBehaviour {
 				}
 			}
 		}
-	
+
+		anim.SetBool("shooting", shooting);
+		anim.SetFloat("speed", agent.speed);
+
 	}
 
 	void shootPlayer() {
@@ -61,7 +67,7 @@ public class enemyAI : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit)) {
 				if (hit.collider && hit.collider.transform.root.tag == "Player") {
-					GameObject bullet = Instantiate(projectile, transform.position - transform.forward, Quaternion.identity) as GameObject;
+					GameObject bullet = Instantiate(projectile, transform.position - transform.forward*transform.localScale.x, Quaternion.identity) as GameObject;
 					bullet.GetComponent<Rigidbody>().AddForce((-transform.forward) * 500);
 				}
 

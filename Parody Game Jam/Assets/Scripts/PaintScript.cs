@@ -27,6 +27,8 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
 	public Image brushtip;
 
+	public GameObject[] trees;
+
 	void Awake() {
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
@@ -116,10 +118,8 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 			Time.timeScale = 1f;
 			Time.fixedDeltaTime = 1f * 0.02f;
 
-			string template = CompareShape.Match(drawpoints);
-			print(template);
 
-			destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false));
+			destroyAll(ConvexHull.ComputeConvexHull(drawpoints, false), CompareShape.Match(drawpoints));
 
 			//foreach (Vector2 point in ConvexHull.ComputeConvexHull(drawpoints,false)) {
 				//canvastex.SetPixel((int)(point.x * 128), (int)(point.y * 128), Color.blue);
@@ -129,7 +129,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		}
 	}
 
-	void destroyAll(List<Vector2> hull) {
+	void destroyAll(List<Vector2> hull, string mode) {
 		foreach (GameObject g in GameObject.FindGameObjectsWithTag("enemy")) {
 			Ray ray = new Ray(player.transform.position, g.transform.position - player.transform.position);
 			RaycastHit hit;
@@ -138,6 +138,16 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				if (hit.collider == g.GetComponentInChildren<Collider>()) {
 					Vector2 spos = Camera.main.WorldToViewportPoint(g.transform.position);
 					if (ConvexHull.ContainsPoint(hull, spos)) {
+						switch (mode) {
+							case "tree":
+								Instantiate(trees[Random.Range(0, trees.Length)], g.transform.position, Quaternion.identity);
+								break;
+							case "mountain":
+								break;
+							case "cloud":
+								break;
+
+						}
 						Destroy(g);
 					}
 				}
@@ -155,6 +165,8 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 				}
 			}
 		}*/
+
+		
 
 	} 
 

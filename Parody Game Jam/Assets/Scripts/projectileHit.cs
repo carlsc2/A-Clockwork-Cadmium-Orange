@@ -9,7 +9,7 @@ public class projectileHit : MonoBehaviour {
 		startpoint = transform.position;
 	}
 
-	void OnCollisionEnter(Collision col) {
+	void OnTriggerEnter(Collider col) {
 		if(col.gameObject.tag != "projectile") {
 			Destroy(gameObject);
 		}
