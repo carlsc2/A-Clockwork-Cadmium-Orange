@@ -10,8 +10,11 @@ public class projectileHit : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col) {
+		if(col.gameObject.tag != "projectile") {
+			Destroy(gameObject);
+		}
 		print(col.gameObject.name);
-		Destroy(gameObject);
+		
 
 		//make player lose hp
 	}
