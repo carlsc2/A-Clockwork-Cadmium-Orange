@@ -26,8 +26,12 @@ public class MovementMotor : MonoBehaviour {
 	void Update () {
         UpdateTrueDirec();
 
-        ApplyMovement();
 	}
+
+    void FixedUpdate() {
+        ApplyMovement_Fixed();
+
+    }
 
     public void SetDesiredMoveDirec(Vector3 desiredDirec) {
         this.desiredDirec = desiredDirec;
@@ -43,7 +47,7 @@ public class MovementMotor : MonoBehaviour {
         trueDirec = Vector3.MoveTowards(trueDirec, desiredDirec, redirectSpeed * Time.deltaTime);
     }
 
-    private void ApplyMovement() {
+    private void ApplyMovement_Fixed() {
         //transform.Translate(trueDirec);
         //rigBod.MovePosition(transform.position + trueDirec);
         rigBod.velocity = transform.localToWorldMatrix * (trueDirec * maxMoveSpeed);
