@@ -102,6 +102,7 @@ public class SoundBarkController : MonoBehaviour {
 	public void PlayRandomBark(BarkClipInfo.BarkTag tag, bool interrupt = false) {
         //playerAudioSourceRef.PlayOneShot(barkClips[Random.Range(0, barkClips.Count - 1)]);
         if (interrupt) {
+            playerAudioSourceRef.Stop();
             barkClipStorage.GetRandomBark(tag, ref playerAudioSourceRef);
         }
 
