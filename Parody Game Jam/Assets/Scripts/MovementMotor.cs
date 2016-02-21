@@ -49,7 +49,10 @@ public class MovementMotor : MonoBehaviour {
 
     private void ApplyMovement_Fixed() {
         //transform.Translate(trueDirec);
-        //rigBod.MovePosition(transform.position + trueDirec);
-        rigBod.velocity = transform.localToWorldMatrix * (trueDirec * maxMoveSpeed);
+
+        //Vector3 adjustedTrueDirec = transform.localToWorldMatrix * trueDirec;
+        //rigBod.MovePosition(transform.position + (Vector3)(transform.localToWorldMatrix * trueDirec * maxMoveSpeed));
+        Vector3 finalTrueDirec = transform.localToWorldMatrix * (new Vector3(trueDirec.x, 0.0f, trueDirec.z) * maxMoveSpeed);
+        rigBod.velocity = new Vector3(finalTrueDirec.x, rigBod.velocity.y, finalTrueDirec.z);
     }
 }
