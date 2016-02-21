@@ -18,16 +18,34 @@ public class ComputerInteract : MonoBehaviour {
 		aso = GetComponent<AudioSource>();
 	}
 
+	void OnTriggerEnter(Collider col) {
+		if (!started && col.transform.root.tag == "Player") {
+			StopAllCoroutines();
+			StartCoroutine(audioroutine1());
+		}
+	}
+
 	void OnTriggerStay(Collider col) {
 		if (Input.GetKeyDown(KeyCode.E)) {
 			if (!started && col.transform.root.tag == "Player") {
-
-				StartCoroutine(audioroutine());
+				StopAllCoroutines();
+				StartCoroutine(audioroutine2());
 			}
 		}
 	}
 
-	IEnumerator audioroutine() {
+
+	IEnumerator audioroutine1() {
+		while (true) {
+			aso.PlayOneShot(clip1);
+			yield return new WaitForSeconds(clip1.length);
+			aso.PlayOneShot(clip2);
+			yield return new WaitForSeconds(clip2.length + 2);
+		}
+	}
+
+
+	IEnumerator audioroutine2() {
 		started = true;
 		aso.PlayOneShot(clip1);
 		yield return new WaitForSeconds(clip1.length);
@@ -37,8 +55,8 @@ public class ComputerInteract : MonoBehaviour {
 		yield return new WaitForSeconds(clip3.length);
 		ui.SetActive(true);
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		player.GetComponent<LookController>().enabled = false;
-		player.GetComponent<MovementMotor>().enabled = false;
+		//player.GetComponent<LookController>().enabled = false;
+		//player.GetComponent<MovementMotor>().enabled = false;
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 		while (true) {
