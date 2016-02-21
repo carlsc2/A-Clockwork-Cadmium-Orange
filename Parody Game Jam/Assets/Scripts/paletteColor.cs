@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class paletteColor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class paletteColor : MonoBehaviour, IPointerEnterHandler {
 
 	public JBirdEngine.ColorLibrary.MoreColors.BobRoss.ColorPalette rossColor;
 
@@ -13,15 +13,10 @@ public class paletteColor : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	}
 
 	public void OnPointerEnter(PointerEventData pdata) {
-		print("ayy lmao: " + name);
 		PaintScript ps = transform.root.GetComponent<PaintScript>();
 		ps.paintColor = color;
 		ps.brushtip.color = color;
 		GetComponent<Image>().color = color;
-	}
-
-	public void OnPointerExit(PointerEventData data) {
-		GetComponent<Image>().color = Color.black;
 	}
 
 }

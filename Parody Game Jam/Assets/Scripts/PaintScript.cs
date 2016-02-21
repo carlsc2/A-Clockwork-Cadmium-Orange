@@ -31,6 +31,15 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+
+		Color[] cols = new Color[128 * 128];
+		for (int i = 0; i < 128 * 128; i++) {
+			cols[i] = Color.clear;
+		}
+		canvastex = new Texture2D(128, 128);
+		drawingCanvas.sprite = Sprite.Create(canvastex, new Rect(0, 0, 128, 128), new Vector2(0.5f, 0.5f));
+		canvastex.SetPixels(cols);
+		canvastex.Apply();
 	}
 
 	void Update() {
