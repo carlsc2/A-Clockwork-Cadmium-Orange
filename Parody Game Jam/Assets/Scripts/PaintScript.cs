@@ -15,7 +15,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public Image drawingCanvas;
 	public RectTransform brush;
 
-	public LookController playercontrol;
+	private LookController playercontrol;
 
 	private bool dragging = false;
 
@@ -41,6 +41,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 		Cursor.lockState = CursorLockMode.Locked;
 		drawpoints = new List<Vector2>();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		playercontrol = player.GetComponent<LookController>();
 		pstat = player.GetComponent<PlayerStatus>();
 
 		Color[] cols = new Color[128 * 128];
