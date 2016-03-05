@@ -314,7 +314,9 @@ MonoBehaviour:
   TransferList: []
   playerAudioSourceRef: {fileID: 348388974}
   barkClipStorage:
-    barkClipInfoList: []
+    barkClipInfoList:
+    - audioClip: {fileID: 8300000, guid: 206a6a81d13bc20468a7fc222f46c429, type: 3}
+      tag: 3
 --- !u!4 &206354088
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,6 +1193,64 @@ Transform:
   - {fileID: 360649745}
   m_Father: {fileID: 0}
   m_RootOrder: 13
+--- !u!1001 &1246678084
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 4.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 10.827282
+      objectReference: {fileID: 0}
+    - target: {fileID: 474180, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 5.3669677
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476244, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: barkTag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476244, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+      propertyPath: interruptSetting
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b1e05f0bc6a50714dabb7c171b3bd67f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1349153714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,60 +1462,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!1 &1588912027
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1588912029}
-  - 114: {fileID: 1588912028}
-  - 65: {fileID: 1588912030}
-  m_Layer: 0
-  m_Name: TriggerAudioVolume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1588912028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1588912027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d354eca7b4df93c40bbbee9583945541, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barkTag: 0
-  interruptSetting: 0
---- !u!4 &1588912029
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1588912027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.84, y: 1.37, z: 4.8101635}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
---- !u!65 &1588912030
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1588912027}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1640562734
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &424182
 Transform:
@@ -151,6 +151,8 @@ MonoBehaviour:
       tag: 0
     - audioClip: {fileID: 8300000, guid: 82eda4ef6ff5276499739717131bdcb4, type: 3}
       tag: 2
+    - audioClip: {fileID: 8300000, guid: bc08b885063b33b4888ad3dc36077bd7, type: 3}
+      tag: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
