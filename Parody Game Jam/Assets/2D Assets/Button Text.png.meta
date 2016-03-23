@@ -1,0 +1,358 @@
+fileFormatVersion: 2
+guid: 5115d314dcad54e42b67a122fe7c4385
+timeCreated: 1458764578
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Button Text_1
+    21300002: Button Text_4
+    21300004: Button Text_5
+    21300006: Button Text_10
+    21300008: Button Text_12
+    21300010: Button Text_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Button Text_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 948
+        width: 498
+        height: 236
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91, y: -109}
+        - {x: 180, y: -109}
+        - {x: 247, y: -21}
+        - {x: 247, y: 61}
+        - {x: 208, y: 113}
+        - {x: -102, y: 113}
+        - {x: -102, y: -105}
+      - - {x: -210, y: 91}
+        - {x: -242, y: 65}
+        - {x: -242, y: 43}
+        - {x: -238, y: 38}
+        - {x: -234, y: 38}
+        - {x: -219, y: 55}
+        - {x: -196, y: 69}
+        - {x: -211, y: 58}
+        - {x: -242, y: 20}
+        - {x: -242, y: 6}
+        - {x: -229, y: -3}
+        - {x: -232, y: -67}
+        - {x: -228, y: -70}
+        - {x: -213, y: -70}
+        - {x: -206, y: -69}
+        - {x: -108, y: 15}
+        - {x: -108, y: 88}
+        - {x: -124, y: 91}
+    - name: Button Text_4
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 979
+        width: 873
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 413.5, y: 38}
+        - {x: 396.5, y: 49}
+        - {x: 326.5, y: 49}
+        - {x: 306.5, y: 3}
+        - {x: 288.5, y: 49}
+        - {x: -260.5, y: 49}
+        - {x: -265.5, y: 31}
+        - {x: -265.5, y: -64}
+        - {x: -194.5, y: -80}
+        - {x: 275.5, y: -80}
+        - {x: 419.5, y: -67}
+        - {x: 430.5, y: -32}
+        - {x: 430.5, y: 22}
+      - - {x: -394.5, y: 56}
+        - {x: -415.5, y: -43}
+        - {x: -415.5, y: -75}
+        - {x: -414.5, y: -77}
+        - {x: -387.5, y: -77}
+        - {x: -379.5, y: -76}
+        - {x: -366.5, y: 26}
+        - {x: -366.5, y: 56}
+      - - {x: -294.5, y: 83}
+        - {x: -383.5, y: 83}
+        - {x: -421.5, y: 73}
+        - {x: -431.5, y: 49}
+        - {x: -431.5, y: 31}
+        - {x: -426.5, y: 26}
+        - {x: -422.5, y: 24}
+        - {x: -328.5, y: -64}
+        - {x: -290.5, y: -64}
+        - {x: -280.5, y: -46}
+        - {x: -280.5, y: -19}
+        - {x: -287.5, y: 78}
+    - name: Button Text_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 707
+        width: 527
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -136.5, y: 96.5}
+        - {x: -168.5, y: 96.5}
+        - {x: -257.5, y: 55.5}
+        - {x: -258.5, y: 49.5}
+        - {x: -258.5, y: -32.5}
+        - {x: -228.5, y: -55.5}
+        - {x: -178.5, y: -89.5}
+        - {x: -99.5, y: -89.5}
+        - {x: -99.5, y: 90.5}
+        - {x: -132.5, y: 95.5}
+      - - {x: 252.5, y: 97.5}
+        - {x: 184.5, y: 97.5}
+        - {x: 149.5, y: 74.5}
+        - {x: 137.5, y: 48.5}
+        - {x: 142.5, y: 45.5}
+        - {x: 91.5, y: 57.5}
+        - {x: 37.5, y: 86.5}
+        - {x: 4.5, y: 97.5}
+        - {x: -59.5, y: 97.5}
+        - {x: -81.5, y: 60.5}
+        - {x: -81.5, y: -52.5}
+        - {x: 222.5, y: -52.5}
+        - {x: 251.5, y: -10.5}
+        - {x: 253.5, y: -7.5}
+        - {x: 253.5, y: 95.5}
+      - - {x: 125.5, y: 97.5}
+        - {x: 94.5, y: 78.5}
+        - {x: 94.5, y: 57.5}
+        - {x: 111.5, y: 57.5}
+        - {x: 140.5, y: 75.5}
+        - {x: 140.5, y: 97.5}
+    - name: Button Text_10
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 549
+        width: 956
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -404, y: 79}
+        - {x: -476, y: 58}
+        - {x: -476, y: 1}
+        - {x: -448, y: -86}
+        - {x: -411, y: -86}
+        - {x: -400, y: -83}
+        - {x: -335, y: 47}
+        - {x: -335, y: 79}
+      - - {x: -73, y: 24}
+        - {x: -71, y: 33}
+        - {x: -71, y: 36}
+        - {x: -72, y: 38}
+        - {x: -118, y: 65}
+        - {x: -183, y: 65}
+        - {x: -223, y: 11}
+        - {x: -222, y: 22}
+        - {x: -227, y: 31}
+        - {x: -253, y: 24}
+        - {x: -309, y: 23}
+        - {x: -332, y: 21}
+        - {x: -339, y: -41}
+        - {x: -339, y: -81}
+        - {x: -338, y: -85}
+        - {x: -138, y: -85}
+        - {x: -122, y: -76}
+        - {x: -106, y: -56}
+        - {x: -110, y: -36}
+      - - {x: 118, y: 32}
+        - {x: -95, y: 32}
+        - {x: -106, y: 28}
+        - {x: -106, y: -73}
+        - {x: -86, y: -85}
+        - {x: 63, y: -85}
+        - {x: 144, y: -16}
+        - {x: 144, y: 24}
+        - {x: 121, y: 30}
+      - - {x: 469, y: -16}
+        - {x: 443, y: 86}
+        - {x: 236, y: 86}
+        - {x: 143, y: 24}
+        - {x: 143, y: -85}
+        - {x: 448, y: -85}
+        - {x: 471, y: -55}
+        - {x: 472, y: -44}
+        - {x: 472, y: -16}
+      - - {x: 206, y: 65}
+        - {x: 198, y: 64}
+        - {x: 163, y: 45}
+        - {x: 163, y: 26}
+        - {x: 167, y: 25}
+        - {x: 179, y: 25}
+        - {x: 188, y: 29}
+        - {x: 209, y: 54}
+        - {x: 209, y: 65}
+    - name: Button Text_12
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 317
+        width: 581
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -153.5, y: 65.5}
+        - {x: -256.5, y: 65.5}
+        - {x: -276.5, y: 52.5}
+        - {x: -283.5, y: 30.5}
+        - {x: -283.5, y: 7.5}
+        - {x: -276.5, y: 7.5}
+        - {x: -252.5, y: 30.5}
+        - {x: -232.5, y: 40.5}
+        - {x: -183.5, y: 44.5}
+        - {x: -222.5, y: -0.5}
+        - {x: -225.5, y: -8.5}
+        - {x: -224.5, y: -12.5}
+        - {x: -223.5, y: -15.5}
+        - {x: -225.5, y: -12.5}
+        - {x: -222.5, y: 7.5}
+        - {x: -215.5, y: 16.5}
+        - {x: -218.5, y: 40.5}
+        - {x: -235.5, y: 38.5}
+        - {x: -244.5, y: 34.5}
+        - {x: -248.5, y: 32.5}
+        - {x: -267.5, y: -65.5}
+        - {x: -261.5, y: -89.5}
+        - {x: -194.5, y: -89.5}
+        - {x: -156.5, y: -77.5}
+        - {x: -145.5, y: -49.5}
+        - {x: -145.5, y: 62.5}
+      - - {x: 279.5, y: -51.5}
+        - {x: 283.5, y: -36.5}
+        - {x: 283.5, y: -12.5}
+        - {x: 280.5, y: -12.5}
+        - {x: 225.5, y: 87.5}
+        - {x: 148.5, y: 87.5}
+        - {x: 142.5, y: 81.5}
+        - {x: 148.5, y: 60.5}
+        - {x: 154.5, y: 59.5}
+        - {x: 160.5, y: 9.5}
+        - {x: 128.5, y: 34.5}
+        - {x: -89.5, y: 38.5}
+        - {x: -126.5, y: -13.5}
+        - {x: -126.5, y: -78.5}
+        - {x: -111.5, y: -86.5}
+        - {x: 152.5, y: -86.5}
+        - {x: 175.5, y: -80.5}
+        - {x: 241.5, y: -77.5}
+    - name: Button Text_13
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 19
+        width: 1298
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -626, y: 85.5}
+        - {x: -633, y: 79.5}
+        - {x: -643, y: 38.5}
+        - {x: -643, y: -87.5}
+        - {x: -478, y: -87.5}
+        - {x: -476, y: -79.5}
+        - {x: -476, y: 75.5}
+        - {x: -481, y: 77.5}
+        - {x: -508, y: 67.5}
+        - {x: -596, y: 85.5}
+      - - {x: 13, y: 85.5}
+        - {x: 13, y: -87.5}
+        - {x: 171, y: -87.5}
+        - {x: 179, y: -86.5}
+        - {x: 179, y: 85.5}
+      - - {x: -458, y: 33.5}
+        - {x: -458, y: -77.5}
+        - {x: -34, y: -77.5}
+        - {x: -21, y: -74.5}
+        - {x: -21, y: 33.5}
+      - - {x: 545, y: 33.5}
+        - {x: 510, y: 30.5}
+        - {x: 489, y: 26.5}
+        - {x: 458, y: 33.5}
+        - {x: 362, y: 33.5}
+        - {x: 329, y: 24.5}
+        - {x: 327, y: 19.5}
+        - {x: 295, y: 33.5}
+        - {x: 210, y: 33.5}
+        - {x: 198, y: -7.5}
+        - {x: 198, y: -77.5}
+        - {x: 640, y: -77.5}
+        - {x: 640, y: 8.5}
+        - {x: 598, y: 33.5}
+      - - {x: -227, y: 71.5}
+        - {x: -230, y: 72.5}
+        - {x: -271, y: 55.5}
+        - {x: -273, y: 50.5}
+        - {x: -273, y: 32.5}
+        - {x: -256, y: 32.5}
+        - {x: -251, y: 34.5}
+        - {x: -227, y: 61.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

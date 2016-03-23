@@ -66,7 +66,7 @@ public class PaintScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 #if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPaused = true;
 #else
-			Application.Quit();
+			//Application.Quit();
 #endif
 
 		}
